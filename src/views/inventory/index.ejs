@@ -1,0 +1,44 @@
+<%- include('../partials/header', { title: 'Inventory App' }) %>
+<div class="row g-3">
+  <div class="col-12 col-lg-4">
+    <div class="card"><div class="card-body">
+      <h5>Kategori</h5>
+      <form method="post" action="/inventory/categories" class="d-flex gap-2">
+        <input class="form-control" name="name" required>
+        <button class="btn btn-primary">Tambah</button>
+      </form>
+      <ul class="mt-2"><% categories.forEach(c=> { %><li><%= c.name %></li><% }) %></ul>
+    </div></div>
+  </div>
+  <div class="col-12 col-lg-8">
+    <div class="card"><div class="card-body">
+      <h5>Produk</h5>
+      <form method="post" action="/inventory/products" class="row g-2">
+        <div class="col-md-4"><input class="form-control" name="name" placeholder="Nama" required></div>
+        <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="sale_price" placeholder="Harga jual" required></div>
+        <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="production_price" placeholder="Harga produksi" required></div>
+        <div class="col-md-2"><input class="form-control" type="number" name="stock_finished" value="0"></div>
+        <div class="col-md-2"><button class="btn btn-primary w-100">Tambah</button></div>
+      </form>
+      <div class="table-responsive mt-2"><table class="table table-sm"><tr><th>Nama</th><th>Stok</th></tr>
+      <% products.forEach(p=> { %><tr><td><%= p.name %></td><td><%= p.stock_finished %></td></tr><% }) %></table></div>
+    </div></div>
+  </div>
+
+  <div class="col-12">
+    <div class="card"><div class="card-body">
+      <h5>Buat Nota</h5>
+      <form method="post" action="/inventory/invoices" class="row g-2">
+        <div class="col-md-2"><select class="form-select" name="type"><option value="cash">Kontan</option><option value="debt">Hutang</option></select></div>
+        <div class="col-md-2"><select class="form-select" name="customer_id"><% customers.forEach(c=> { %><option value="<%= c.id %>"><%= c.name %></option><% }) %></select></div>
+        <div class="col-md-2"><select class="form-select" name="product_id"><% products.forEach(p=> { %><option value="<%= p.id %>"><%= p.name %></option><% }) %></select></div>
+        <div class="col-md-1"><input class="form-control" type="number" name="qty" value="1"></div>
+        <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="unit_price" placeholder="harga"></div>
+        <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="paid_amount" placeholder="bayar awal"></div>
+        <div class="col-md-2"><input class="form-control" type="date" name="due_date"></div>
+        <div class="col-md-1"><button class="btn btn-success w-100">Simpan</button></div>
+      </form>
+    </div></div>
+  </div>
+</div>
+<%- include('../partials/footer') %>

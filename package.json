@@ -1,0 +1,35 @@
+{
+  "name": "scinesia-inventory",
+  "version": "1.0.0",
+  "description": "Aplikasi inventory ringan berbasis Express + EJS",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "migrate": "node scripts/runMigrations.js",
+    "seed": "node scripts/seed.js",
+    "backup": "node scripts/backup.js",
+    "restore": "node scripts/restore.js",
+    "test": "node scripts/smokeTest.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-session-knex": "^3.0.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "knex": "^3.1.0",
+    "mysql2": "^3.11.3",
+    "node-cron": "^3.0.3",
+    "pdfkit": "^0.15.0",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

@@ -1,0 +1,21 @@
+<%- include('../partials/header', { title: 'Inventory App' }) %>
+<div class="card mb-3"><div class="card-body">
+  <h5>Karyawan</h5>
+  <form method="post" action="/production/employees" class="row g-2">
+    <div class="col-md-4"><input class="form-control" name="name" placeholder="Nama" required></div>
+    <div class="col-md-2"><input class="form-control" type="number" name="ratio_owner" value="4"></div>
+    <div class="col-md-2"><input class="form-control" type="number" name="ratio_employee" value="1"></div>
+    <div class="col-md-2"><button class="btn btn-primary">Tambah</button></div>
+  </form>
+</div></div>
+
+<div class="card"><div class="card-body">
+  <h5>Input Produksi</h5>
+  <form method="post" action="/production/entries" class="row g-2">
+    <div class="col-md-3"><select class="form-select" name="employee_id"><% employees.forEach(e=> { %><option value="<%= e.id %>"><%= e.name %></option><% }) %></select></div>
+    <div class="col-md-3"><select class="form-select" name="product_id"><% products.forEach(p=> { %><option value="<%= p.id %>"><%= p.name %></option><% }) %></select></div>
+    <div class="col-md-4"><input id="qtyPattern" class="form-control" name="qty_pattern" placeholder="150|300|420" required></div>
+    <div class="col-md-2"><button class="btn btn-success w-100">Hitung & Simpan</button></div>
+  </form>
+</div></div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,12 @@
+<%- include('../partials/header', { title: 'Inventory App' }) %>
+<div class="row g-3">
+  <% Object.entries(stats).forEach(([key,val])=> { %>
+    <div class="col-6 col-md-4">
+      <div class="card"><div class="card-body">
+        <small class="text-muted"><%= key %></small>
+        <h3><%= val %></h3>
+      </div></div>
+    </div>
+  <% }) %>
+</div>
+<%- include('../partials/footer') %>

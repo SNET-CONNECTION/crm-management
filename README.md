@@ -70,8 +70,8 @@ Jika Anda sudah punya data lama:
 
 ### Langkah 1 — Clone dan masuk folder project
 ```bash
-git clone <repo-url>
-cd scinesia
+git clone https://github.com/SNET-CONNECTION/crm-management.git
+cd crm-management
 ```
 
 ### Langkah 2 — Buat file environment

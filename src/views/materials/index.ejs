@@ -1,0 +1,15 @@
+<%- include('../partials/header', { title: 'Inventory App' }) %>
+<% if (lowStock.length) { %>
+  <div class="alert alert-warning">Notifikasi stok menipis: <%= lowStock.map(v=>v.name).join(', ') %></div>
+<% } %>
+<div class="card mb-3"><div class="card-body">
+  <h5>Tambah Bahan</h5>
+  <form method="post" action="/materials" class="row g-2">
+    <div class="col-md-3"><input class="form-control" name="name" required></div>
+    <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="stock" value="0"></div>
+    <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="min_stock" value="0"></div>
+    <div class="col-md-2"><input class="form-control" name="unit" value="pcs"></div>
+    <div class="col-md-2"><button class="btn btn-primary">Simpan</button></div>
+  </form>
+</div></div>
+<%- include('../partials/footer') %>

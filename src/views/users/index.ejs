@@ -1,0 +1,11 @@
+<%- include('../partials/header', { title: 'Inventory App' }) %>
+<div class="card"><div class="card-body">
+  <h5>Tambah User</h5>
+  <form method="post" action="/users" class="row g-2">
+    <div class="col-md-3"><input class="form-control" name="username" required></div>
+    <div class="col-md-3"><input class="form-control" type="password" name="password" required></div>
+    <div class="col-md-3"><select class="form-select" name="role"><option>admin</option><option>kasir</option><option>produksi</option><option>owner</option></select></div>
+    <div class="col-md-2"><button class="btn btn-primary">Simpan</button></div>
+  </form>
+</div></div>
+<%- include('../partials/footer') %>
